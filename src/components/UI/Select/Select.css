@@ -1,0 +1,65 @@
+.custom-select {
+  position: relative;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 300px;
+}
+
+.select-container {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.selected-option {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.arrow {
+  flex-shrink: 0;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.arrow svg {
+  display: block;
+  fill: #333;
+  width: 16px;
+  height: 16px;
+}
+
+.options-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  display: none;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  background-color: #fff;
+  width: 100%; /* Занимает всю доступную ширину */
+  box-sizing: border-box; /* Учитывает padding и border */
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
