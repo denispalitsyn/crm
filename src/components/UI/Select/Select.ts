@@ -1,6 +1,12 @@
 import './Select.css';
 
-class Select {
+interface SelectExtraProps {
+  className?: string;
+  value?: string;
+  onSelect?: (option: string) => void;
+}
+
+export class Select {
   private element: HTMLDivElement;
   private selectContainer: HTMLDivElement;
   private optionsContainer: HTMLDivElement;
@@ -8,9 +14,16 @@ class Select {
   private selectedOption: HTMLDivElement;
   private isOpen: boolean = false;
 
-  constructor(options: string[]) {
+  constructor(
+    options: string[],
+    { value, className, onSelect }: SelectExtraProps
+  ) {
     this.element = document.createElement('div');
     this.element.classList.add('custom-select');
+
+    if (className) {
+      this.element.classList.add(className);
+    }
 
     this.selectContainer = document.createElement('div');
     this.selectContainer.classList.add('select-container');
@@ -28,7 +41,7 @@ class Select {
 
     this.selectedOption = document.createElement('div');
     this.selectedOption.classList.add('selected-option');
-    this.selectedOption.textContent = options[0]; // Начальное значение
+    this.selectedOption.textContent = value || options[0];
 
     this.optionsContainer = document.createElement('div');
     this.optionsContainer.classList.add('options-container');
@@ -40,6 +53,10 @@ class Select {
       option.textContent = optionText;
       option.addEventListener('click', () => {
         this.selectOption(optionText);
+
+        if (onSelect) {
+          onSelect(optionText);
+        }
       });
       this.optionsContainer.appendChild(option);
     });
@@ -65,5 +82,3 @@ class Select {
     targetElement.appendChild(this.element);
   }
 }
-
-export default Select;

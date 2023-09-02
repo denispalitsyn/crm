@@ -1,6 +1,6 @@
 import './Header.css';
 
-class Header {
+export class Header {
   private element: HTMLElement;
 
   constructor() {
@@ -22,5 +22,3 @@ class Header {
     targetElement.appendChild(this.element);
   }
 }
-
-export default Header;

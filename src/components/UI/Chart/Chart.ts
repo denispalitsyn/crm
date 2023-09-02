@@ -1,6 +1,6 @@
 import { default as _Chart } from 'chart.js/auto';
 
-class Chart {
+export class Chart {
   private element: HTMLElement;
   private chartCanvas: HTMLCanvasElement;
 
@@ -55,5 +55,3 @@ class Chart {
     targetElement.appendChild(this.element);
   }
 }
-
-export default Chart;

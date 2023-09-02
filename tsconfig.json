@@ -22,8 +22,15 @@
     "baseUrl": "./src",
 
     "paths": {
-      "@/components/*": ["./components/*"]
+      "@/src/*": ["./*"],
+      "@/components/*": ["./components/*"],
+      "@/views/*": ["./views/*"],
+      "@/types/*": ["./types/*"],
+      "@/supabaseClient/*": ["./supabaseClient.ts"],
+      "@/services/*": ["./services/*"],
+      "@/api/*": ["./api/*"],
+      "@/features/*": ["./features/*"],
     }
   },
-  "include": ["src"]
+  "include": ["src", "pages"]
 }

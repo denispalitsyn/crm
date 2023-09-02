@@ -1,0 +1,17 @@
+.radio-button-group {
+  margin-bottom: 20px;
+}
+
+.radio-button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.radio-button input[type='radio'] {
+  margin-right: 5px;
+}
+
+.radio-button span {
+  margin-right: 10px;
+}

@@ -1,29 +1,89 @@
 .table-container {
-  border: 1px solid #ccc;
+  font-family: Arial, sans-serif;
   border-radius: 4px;
-  overflow: hidden;
-  width: 500px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+
+  --row-height: 40px;
 }
 
-.table-header,
-.table-row {
+.table-header-row {
   display: flex;
-  flex-direction: row;
+  background-color: #f5f5f5;
+  padding: 8px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
 }
 
-.table-header div,
-.table-row div {
+.table-header-cell {
   flex: 1;
   padding: 8px;
-  border-right: 1px solid #ccc;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.table-header div:last-child,
-.table-row div:last-child {
-  border-right: none;
+.table-data-container {
+  padding: 0 8px;
+  overflow-y: auto;
+  max-height: calc(var(--row-height) * 10 + 9px);
 }
 
-.table-header {
-  background-color: #f0f0f0;
-  font-weight: bold;
+.table-data-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  height: var(--row-height, 40px);
+}
+
+.table-data-row:last-child {
+  border-bottom: none;
+}
+
+.table-data-cell {
+  flex: 1;
+  padding: 0 8px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.table-pagination-container {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: #f5f5f5; /* Изменен цвет фона */
+  border-top: 1px solid #ddd;
+}
+
+.table-pagination-buttons-container {
+  margin-left: 24px;
+  display: flex;
+  gap: 8px;
+}
+
+.table-pagination-info-container {
+  margin-left: auto;
+  margin-right: 24px;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

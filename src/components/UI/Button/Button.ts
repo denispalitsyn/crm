@@ -1,12 +1,26 @@
 import './Button.css';
 
-class Button {
+export class Button {
   private element: HTMLButtonElement;
 
-  constructor(text: string) {
+  constructor(
+    text: string,
+    {
+      id,
+      onClick,
+    }: { id?: string; onClick?: (event: MouseEvent, element: Button) => void }
+  ) {
     this.element = document.createElement('button');
     this.element.classList.add('button');
     this.element.textContent = text;
+
+    if (id) {
+      this.element.setAttribute('id', id);
+    }
+
+    if (onClick) {
+      this.element.addEventListener('click', (event) => onClick(event, this));
+    }
   }
 
   setDisabled(disabled: boolean): void {
@@ -17,5 +31,3 @@ class Button {
     targetElement.appendChild(this.element);
   }
 }
-
-export default Button;

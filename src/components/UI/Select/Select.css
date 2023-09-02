@@ -6,6 +6,10 @@
   max-width: 300px;
 }
 
+.custom-select.sm {
+  width: max-content;
+}
+
 .select-container {
   position: relative;
   border: 1px solid #ccc;
